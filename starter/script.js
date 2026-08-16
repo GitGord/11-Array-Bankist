@@ -81,7 +81,7 @@ displayMovements(account1.movements);
 /////////////////////////////////////////////////
 // LECTURES
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 /*
@@ -199,7 +199,6 @@ Hints: Use tools from all lectures in this section so far 😉
 
 GOOD LUCK 😀
 
-*/
 const juliaData = [3, 5, 2, 12, 7];
 const kateData = [4, 1, 15, 8, 3];
 
@@ -221,3 +220,21 @@ const checkDogs = function (dogsJulia, dogsKate) {
 
 checkDogs(juliaData, kateData);
 checkDogs(juliaData2, kateData2);
+*/
+
+const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+// return mov * eurToUsd;
+// });
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`,
+);
+
+console.log(movementsDescriptions);
