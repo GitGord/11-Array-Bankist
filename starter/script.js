@@ -77,6 +77,18 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLocaleLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+const user = 'Steven Thomas Williams'; // stw
+createUserNames(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -220,7 +232,6 @@ const checkDogs = function (dogsJulia, dogsKate) {
 
 checkDogs(juliaData, kateData);
 checkDogs(juliaData2, kateData2);
-*/
 
 const eurToUsd = 1.1;
 
@@ -238,3 +249,4 @@ const movementsDescriptions = movements.map(
 );
 
 console.log(movementsDescriptions);
+*/
