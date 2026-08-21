@@ -453,3 +453,17 @@ const findFor = function (accounts) {
 const accountFor = findFor(accounts);
 console.log(accountFor);
 */
+/////////////////////////////////////////////
+// THe findLast and findLastIndex methods
+
+console.log(movements);
+const lastWithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastWithdrawal);
+
+const lastestLargeMovementIndex = movements.findLastIndex(
+  mov => Math.abs(mov) > 2000,
+);
+console.log(lastestLargeMovementIndex);
+console.log(
+  `Your latest large movement was ${movements.length - lastestLargeMovementIndex} movements ago`,
+);
