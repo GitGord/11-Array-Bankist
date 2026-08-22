@@ -167,6 +167,19 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount / 10)) {
+    // Add movement
+    currentAccount.movements.push(amount);
+    // Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -452,7 +465,6 @@ const findFor = function (accounts) {
 };
 const accountFor = findFor(accounts);
 console.log(accountFor);
-*/
 /////////////////////////////////////////////
 // THe findLast and findLastIndex methods
 
@@ -467,3 +479,23 @@ console.log(lastestLargeMovementIndex);
 console.log(
   `Your latest large movement was ${movements.length - lastestLargeMovementIndex} movements ago`,
 );
+*/
+
+// SOME
+console.log(movements);
+// EQUALITY
+console.log(movements.includes(-130));
+
+// CONDITION
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+// EVERY
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+// Seperate call back
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
