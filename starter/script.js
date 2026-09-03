@@ -655,7 +655,6 @@ console.log(movements);
 // });
 movements.sort((a, b) => b - a);
 console.log(movements);
-*/
 
 //////////////////////////////////////
 // ARRAY GROUPING
@@ -678,3 +677,21 @@ console.log(groupByActivity);
 // const groupedAccounts = Object.groupBy(accounts, account => account.type);
 const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
 console.log(groupedAccounts);
+*/
+
+const random = Array.from(
+  { length: 100 },
+  () => Math.floor(Math.random() * 6) + 1,
+);
+console.log(random);
+
+//////////////////////////////////
+// convert from array like structure (node list to array)
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', '')),
+  );
+  console.log(movementsUI);
+});
