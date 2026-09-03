@@ -677,7 +677,6 @@ console.log(groupByActivity);
 // const groupedAccounts = Object.groupBy(accounts, account => account.type);
 const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
 console.log(groupedAccounts);
-*/
 
 const random = Array.from(
   { length: 100 },
@@ -695,3 +694,19 @@ labelBalance.addEventListener('click', function () {
   );
   console.log(movementsUI);
 });
+*/
+
+//////////////////////////////////////////////
+// Non-Destructive Alternatives
+
+console.log(movements);
+// const reversedMov = movements.reverse();
+const reversedMov = movements.toReversed();
+console.log(reversedMov);
+
+// toSorted (sort), toSplice (splice)
+
+// movements[1] = 2000;
+const newMovements = movements.with(1, 2000);
+console.log(newMovements);
+console.log(movements);
